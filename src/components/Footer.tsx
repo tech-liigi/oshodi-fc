@@ -48,9 +48,9 @@ const Footer = ({sponsors, data, social, policies, general}:any) =>{
     return (
         <div id="footer">
             <section  className="mt-[80px]">
-                <div className="flex justify-around w-[90%] mx-auto flex-wrap items-center">
+                <div className="flex justify-around lg:w-[90%] md:w-[90%] sm:w-[99%] xl:w-[90%] mx-auto flex-wrap items-center">
                     {sponsors.map((sponsor:any) =>(
-                        <Link key={sponsor._id} href={sponsor.link || "#"} className="p-4 flex flex-grow w-[22.5%] min-h-[160px] justify-around items-center flex-col">
+                        <Link key={sponsor._id} href={sponsor.link || "#"} className="p-4 flex flex-grow lg:w-[22.5%] md:w-[22.5%] sm:w-[45%] xl:w-[22.5%] min-h-[160px] justify-around items-center flex-col">
                             <img src={sponsor?.image && urlForImage(sponsor?.image)?.url()} title={sponsor.kind} alt={sponsor.kind} className="max-w-[100px] max-h-[100px]" />
                             <p className={`${montserrat.className} text-sm`}>{sponsor.kind}</p>
                         </Link>

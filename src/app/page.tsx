@@ -105,7 +105,7 @@ const images = (banner.images || []).map(image => image ? urlForImage(image).url
                     </>
                     }
                     {section.id === "cta" &&
-                        <section key={section.id} className="grid lg:grid-cols-2 md:grid-cols-2 sm:grid-cols-1 xl:grid-cols-2 gap-4 w-full xl:x-16 lg:px-16 lg:py-16 md:px-16 md:py-16 sm:px-5 sm:py-12 xl:py-16 xl:mt-0 lg:mt-0 md:mt-0 sm:mt-[370px]">
+                        <section key={section.id} className="grid lg:grid-cols-2 md:grid-cols-2 sm:grid-cols-1 xl:grid-cols-2 gap-4 w-full xl:x-16 lg:px-16 lg:py-16 md:px-16 md:py-16 sm:px-5 sm:py-12 xl:py-16 xl:mt-0 lg:mt-0 md:mt-0">
                             <h1 className={` xl:text-6xl lg:text-6xl md:text-5xl sm:text-4xl leading-snug w-[100%] font-bold  `}>{section.title}</h1>
                             <div className="flex flex-col w-[100%] xl:pl-10 lg:pl-10 md:pl-10 sm:pl-0">
                                 <p className="text-md font-medium">{section.description}</p>
