@@ -5,17 +5,14 @@ const roboto = Roboto({ subsets: ["latin"], weight: "400" });
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { useGSAP } from "@gsap/react";
-import 'react-multi-carousel/lib/styles.css'
+import "react-multi-carousel/lib/styles.css";
 import { sanityFetch } from "@/lib/fetch";
-import {
-  generalResponse,
-  generalQuery,
-} from "@/lib/queries";
-import {urlForImage} from "@/lib/utils"
+import { generalResponse, generalQuery } from "@/lib/queries";
+import { urlForImage } from "@/lib/utils";
 gsap.registerPlugin(useGSAP);
 gsap.registerPlugin(ScrollTrigger);
 export async function generateMetadata(
-    parent: ResolvingMetadata
+  parent: ResolvingMetadata
 ): Promise<Metadata> {
   const [general] = await Promise.all([
     sanityFetch<generalResponse>({
@@ -23,16 +20,16 @@ export async function generateMetadata(
     }),
   ]);
 
-  return  {
-    title: `${general.title} Football News, Fixtures, Scores & Results`,
+  return {
+    title: `${general.title} Official Website`,
     description: `For all the latest ${general.title} news, visit the official website of the ${general.title}.`,
     icons: {
-      icon: general.logo && urlForImage(general.logo)?.url()
+      icon: general.logo && urlForImage(general.logo)?.url(),
     },
     openGraph: {
-      title: `${general.title} Football News, Fixtures, Scores & Results`,
+      title: `${general.title} Official Website`,
       description: `For all the latest ${general.title} news, visit the official website of the ${general.title}.`,
-      images: general.logo && [`${urlForImage(general?.logo)?.url()}`]
+      images: general.logo && [`${urlForImage(general?.logo)?.url()}`],
     },
   };
 }
@@ -42,7 +39,6 @@ export default async function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
-
   const [general] = await Promise.all([
     sanityFetch<generalResponse>({
       query: generalQuery,
@@ -51,8 +47,7 @@ export default async function RootLayout({
   return (
     <html lang="en">
       <body className={roboto.className}>
-      <style>{
-        `
+        <style>{`
       :root{
                   --foreground-rgb: 0, 0, 0;
                   --background-start-rgb: 214, 219, 220;
@@ -61,9 +56,8 @@ export default async function RootLayout({
                   --secondary-color: ${general?.secondary_color.hex};
       }
       
-      `
-      }</style>
-      {children}
+      `}</style>
+        {children}
       </body>
     </html>
   );
