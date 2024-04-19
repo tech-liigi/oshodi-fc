@@ -111,9 +111,10 @@ export default async function Home() {
   ]);
   const home = nav.pages.find((p) => p.id === "home");
   // @ts-ignore
-  const images = (banner.images || []).map((image) =>
-    image ? urlForImage(image).url() : ""
-  );
+  const images = (banner.images || []).map((image) => {
+    const imageUrlObject = image ? urlForImage(image) : null;
+    return imageUrlObject ? imageUrlObject.url() : "";
+  });
   return (
     <>
       <Header pageId={"home"} logo={general} clubs={clubs} menuItems={nav} />
@@ -188,7 +189,7 @@ export default async function Home() {
                             >
                               <img
                                 src={urlForImage(
-                                  sponsors[sponsors.length - 1].image
+                                  sponsors[sponsors.length - 1].image,
                                 )?.url()}
                                 alt={sponsors[sponsors.length - 1].kind}
                                 title={sponsors[sponsors.length - 1].kind}
@@ -295,7 +296,7 @@ export default async function Home() {
                             href={createSlug(
                               item.category.title,
                               item.slug.current,
-                              item._type
+                              item._type,
                             )}
                           >
                             <div className="square-image-wrapper relative rounded-[4px] overflow-hidden w-full min-w-[250px] max-w-[850px]">
@@ -330,7 +331,7 @@ export default async function Home() {
                               href={createSlug(
                                 item.category.title,
                                 item.slug.current,
-                                item._type
+                                item._type,
                               )}
                             >
                               <h3
@@ -348,7 +349,7 @@ export default async function Home() {
                               href={createSlug(
                                 item.category.title,
                                 item.slug.current,
-                                item._type
+                                item._type,
                               )}
                             >
                               <button

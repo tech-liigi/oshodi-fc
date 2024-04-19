@@ -71,6 +71,7 @@ interface Section {
     };
   };
   cta: CtaItem[];
+  blockContent: BlockContent[];
 }
 
 interface Page {
